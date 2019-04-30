@@ -10,11 +10,46 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var showsLabel: UILabel!
+    @IBOutlet weak var randomShowLabel: UILabel!
+    @IBOutlet weak var bingeBotSkopenLabel: UILabel!
+    @IBOutlet weak var addShowTextField: UITextField!
+    @IBOutlet weak var addShowButton: UIButton!
+    @IBOutlet weak var randomShowStackView: UIStackView!
+    @IBOutlet weak var addShowStackView: UIStackView!
+    @IBOutlet weak var showsStackView: UIStackView!
+    
+    var shows: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        showsStackView.isHidden = true
+        randomShowStackView.isHidden = true
+    }
+    func updateShowsLabel() {
+        showsLabel.text = shows.joined(separator: ", ")
     }
 
-
+    @IBAction func addShowButtonWasPressed(_ sender: Any) {
+        guard let showName = addShowTextField.text else { return }
+        showsStackView.isHidden = false
+        shows.append(showName)
+        updateShowsLabel()
+        addShowTextField.text = ""
+        if shows.count > 1 {
+            randomShowStackView.isHidden = false
+            bingeBotSkopenLabel.isHidden = true
+            randomShowLabel.isHidden = true
+        }
+    }
+    
+    @IBAction func whatToBingeButton(_ sender: Any) {
+        
+        
+    }
+    
+    
+    
 }
 
