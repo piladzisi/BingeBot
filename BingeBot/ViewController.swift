@@ -45,8 +45,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func whatToBingeButton(_ sender: Any) {
-        
-        
+        randomShowLabel.text = shows.randomElement()
+        bingeBotSkopenLabel.isHidden = false
+        randomShowLabel.isHidden = false
     }
     
     
