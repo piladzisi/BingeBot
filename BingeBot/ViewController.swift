@@ -32,25 +32,27 @@ class ViewController: UIViewController {
     }
 
     @IBAction func addShowButtonWasPressed(_ sender: Any) {
-        guard let showName = addShowTextField.text else { return }
-        showsStackView.isHidden = false
-        shows.append(showName)
-        updateShowsLabel()
-        addShowTextField.text = ""
-        if shows.count > 1 {
-            randomShowStackView.isHidden = false
-            bingeBotSkopenLabel.isHidden = true
-            randomShowLabel.isHidden = true
+        guard let showName = addShowTextField.text  else { return }
+        if showName != "" {
+            showsStackView.isHidden = false
+            shows.append(showName)
+            updateShowsLabel()
+            addShowTextField.text = ""
+            if shows.count > 1 {
+                randomShowStackView.isHidden = false
+                bingeBotSkopenLabel.isHidden = true
+                randomShowLabel.isHidden = true
+            }
         }
     }
     
     @IBAction func whatToBingeButton(_ sender: Any) {
-        randomShowLabel.text = shows.randomElement()
+       randomShowLabel.text = shows.randomElement()
         bingeBotSkopenLabel.isHidden = false
         randomShowLabel.isHidden = false
     }
     
     
-    
 }
+
 
